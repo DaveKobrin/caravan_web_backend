@@ -44,23 +44,23 @@ all cards in game (6 * 54 cards)
 > User stories detailing app functionality<br />
 > Add user stories following the _As a [type of user], I want [what the user wants], so that [what it helps accomplish]_ format.
 
-- As a USER I want to be able to create a new account
-- As a USER I want to build a deck to play with
-- As a USER I want my deck to be saved for my next play session
-- As a USER I want to be able to modify my user info
-- As a USER I want to be able to delete my user account
-- As a USER I want to have a gamer tag to share with my friends
-
-- As a USER I want to be able to play a game of Caravan
-- As a USER I want to be able to play against my friend over the web
-- As a USER I want to be able to get more cards in exchange for caps
-- As a USER I want to be able to get more caps by logging in every day
-- As a USER I want to be able to win caps by betting on a hand of Caravan
+  - As a USER I want to be able to create a new account
+  - As a USER I want to build a deck to play with
+  - As a USER I want my deck to be saved for my next play session
+  - As a USER I want to be able to modify my user info
+  - As a USER I want to be able to delete my user account
+  - As a USER I want to have a gamer tag to share with my friends
+  
+  - As a USER I want to be able to play a game of Caravan
+  - As a USER I want to be able to play against my friend over the web
+  - As a USER I want to be able to get more cards in exchange for caps
+  - As a USER I want to be able to get more caps by logging in every day
+  - As a USER I want to be able to win caps by betting on a hand of Caravan
 
 ## MVP Goals
 1. Databases
-  - users - contain references to cards database (full CRUD)
-  - allCards - database of 6 decks worth of unique cards
+    - users - contain references to cards database (full CRUD)
+    - allCards - database of 6 decks worth of unique cards
 2. Create User
 3. Create a Deck
 4. Update Deck & user info
