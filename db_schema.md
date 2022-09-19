@@ -1,4 +1,3 @@
-will need to track 
 ### Database Schema
 user account
 - **_id** *unique auto-generated*
@@ -31,6 +30,7 @@ all cards in game (6 * 54 cards)
  | Destroy | DELETE | /user/:id | delete user account |
 
 
+will need to track 
   In an active game react side 
   - each users' active deck
   - each users' current cards in hand
@@ -43,3 +43,4 @@ all cards in game (6 * 54 cards)
  a way to get more cards into the users total available cards
 
  a way to get more caps 
+ 
