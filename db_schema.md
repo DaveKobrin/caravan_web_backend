@@ -1,4 +1,4 @@
-### Database Schema
+## Database Schema
 user account
 - **_id** *unique auto-generated*
 - **name** *string*
@@ -11,14 +11,15 @@ user account
 
 all cards in game (6 * 54 cards)
 - **_id** *unique auto-generated*
-- **value** *number (1-13)*
+- **value** *number (0-13(joker, ace - king))*
+- **suit** *string*
 - **isModifier** *bool*
 - **face** *string (link to image src)*
 - **back** *string (link to image src)*
 
 
 
-### Routes
+## Routes
  | Action | Protocol | Endpoint | Description |
  |--------|----------|----------|-------------|
  | Create | POST | /user/register | add new user into database |
@@ -43,4 +44,3 @@ will need to track
  a way to get more cards into the users total available cards
 
  a way to get more caps 
- 
