@@ -12,12 +12,12 @@ database access and API for full-stack MERN web app version of the card game fro
 > User stories detailing app functionality<br />
 > Add user stories following the _As a [type of user], I want [what the user wants], so that [what it helps accomplish]_ format.
 <ul>
-<li>I want to build a deck to play with
-<li>I want my deck to be saved for my next play session
-<li>I want to be able to modify my deck
-<li>I want to be able to delete my deck
-<li>I want to have a gamer tag
-<li>I want to be able to play my friends>
+<li>As a USER I want to build a deck to play with
+<li>As a USER I want my deck to be saved for my next play session
+<li>As a USER I want to be able to modify my deck
+<li>As a USER I want to be able to delete my deck
+<li>As a USER I want to have a gamer tag
+<li>As a USER I want to be able to play my friends>
 </ul>
 
 
