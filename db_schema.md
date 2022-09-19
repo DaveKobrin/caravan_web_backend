@@ -1,22 +1,21 @@
 will need to track 
 ### Database Schema
-- user account
-  - _id ~unique auto-generated~
-  - name ~string~
-  - email ~string unique~
-  - password ~string bcrypted~
-  - friend list ~[user._id]~
-  - balance of caps ~number( >= 0 )~
-  - each users' total available cards ~[card._id]~
-  - each users' active deck of cards ~[card._id(unique)(>=30 cards)]~
-  
+user account
+- _id _unique auto-generated_
+- name _string_
+- email _string unique_
+- password _string bcrypted_
+- friend list _[user._id]_
+- balance of caps _number( >= 0 )_
+- each users' total available cards _[card._id]_
+- each users' active deck of cards _[card._id(unique)(>=30 cards)]_
 
-- all cards in game (6 * 54 cards)
-  - _id ~unique auto-generated~
-  - value ~number (1-13)~
-  - isModifier ~bool~
-  - face ~string (link to image src)~
-  - back ~string (link to image src)~
+all cards in game (6 * 54 cards)
+- _id _unique auto-generated_
+- value _number (1-13)_
+- isModifier _bool_
+- face _string (link to image src)_
+- back _string (link to image src)_
 
 
 
