@@ -1,6 +1,64 @@
 # caravan_web_backend
 database access and API for full-stack MERN web app version of the card game from Fallout New Vegas
 
+## THE GAME
+- New to the game?
+    - Create a user account
+
+    - Collect playing cards to build your deck
+        - Each new user will get a starter set of 54 cards
+        - Buy more with the caps you will earn by winning
+        - There are 6 sets of cards to collect.
+        - You can own duplicate cards, but may not use them together in your deck
+
+    - Build your deck
+        - Your deck must contain at least 30 cards
+        - You can have multiple cards of the same suit and value, but they must be of different sets
+        - Click on the card face in the lower carosel to add it to your deck
+        - Click on the card face in the upper carosel to remove it from your deck
+
+    - Betting
+        - One player will begin by placing a bet from their balance of caps
+        - The next player can match or raise the bet from their own balance of caps
+        - The game continues after the bet is matched
+
+    - Starting to play
+        - Each player draws 8 cards from their shuffled deck
+        - The first 3 rounds are setting up the caravans by playing a number card from their hand into each caravan slot
+            1. Dayglow
+            2. Boneyard
+            3. New Reno
+            4. Redding
+            5. The Hub
+            6. Shady Sands
+        - If you are have no number cards durring these moves you must discard and draw a new card until you can play a card
+    
+    - Normal turns
+        - You can play a card from your hand, or discard a card then draw another card to maintain a 5 card hand
+        - Number cards add the face value *plus any modifiers* to the value of the caravan 
+        - Caravans may be ascending or descending depending on the first 2 cards played on them
+            - if the first 2 cards are 2 and 5 you can play a 6 or higher of any suit, but not a 5 or lower
+            - if the first 2 cards are 9 and 6 you can play a 5 or lower of any suit, but not a 6 or higher
+        - Caravans also have a suit which is set by the last number card or Queen played to it
+            - You can play any number card of the active suit to the caravan *this does **not** change the direction of the caravan*
+        - Face cards and Jokers have special effects and can be played on number cards in play
+            - Jack - played on any number card - removes the target card and any modifiers played on it without otherwise affecting the caravan
+            - Queen - played on the top number card of a caravan - reverses the direction of the caravan and changes the suit to match the queen
+            - King - played on any number card - doubles the current value of that card this effect is stackable 
+            - Joker - played on any number card - has different effects when played on an ace vs any other number
+                - Played on an ace - removes all number cards of the same suit (and any modifiers on them) as the ace except for that ace
+                - Played on any number 2 - 10 - removes all cards of the same number(and any modifiers on them) as the number except for that number card
+
+    - Winning the game
+        - The opposing players caravans pair up against each other to win the bid for that slot
+            - Dayglow vs Boneyard
+            - New Reno vs Redding
+            - The Hub vs Shady Sands
+        - Complete caravans have a value between 21 and 26
+        - Caravans with a value less than 21 are "Under Burdened" and not complete
+        - Caravans with a value more than 26 are "Over Burdened" and also not complete
+        - Normal turns continue until all three pairs of caravans have a complete caravan and any ties are resolved **OR** a player has run out of cards in their draw pile
+        - The winner is the player who has at least 2 of the higher value caravans or the player who still has cards in the draw pile
 
 ## Wireframes
 > Wireframes with basic page layouts<br />
@@ -72,3 +130,4 @@ all cards in game (6 * 54 cards)
 3. Implement caps system for betting
 4. Implement daily login tracking and reward system
 5. Implement buy single or small pack of more cards
+6. Allow users to trade cards
