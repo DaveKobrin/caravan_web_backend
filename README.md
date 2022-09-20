@@ -14,8 +14,8 @@ database access and API for full-stack MERN web app version of the card game fro
     - Build your deck
         - Your deck must contain at least 30 cards
         - You can have multiple cards of the same suit and value, but they must be of different sets
-        - Click on the card face in the lower carosel to add it to your deck
-        - Click on the card face in the upper carosel to remove it from your deck
+        - Click on the card face in the lower carousel to add it to your deck
+        - Click on the card face in the upper carousel to remove it from your deck
 
     - Betting
         - One player will begin by placing a bet from their balance of caps
@@ -34,7 +34,7 @@ database access and API for full-stack MERN web app version of the card game fro
         - If you are have no number cards durring these moves you must discard and draw a new card until you can play a card
     
     - Normal turns
-        - You can play a card from your hand, or discard a card then draw another card to maintain a 5 card hand
+        - You can play a card from your hand, discard a card then draw another card to maintain a 5 card hand, or discard an entire caravan
         - Number cards add the face value *plus any modifiers* to the value of the caravan 
         - Caravans may be ascending or descending depending on the first 2 cards played on them
             - if the first 2 cards are 2 and 5 you can play a 6 or higher of any suit, but not a 5 or lower
