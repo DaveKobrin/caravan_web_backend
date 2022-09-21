@@ -1,0 +1,28 @@
+{
+  "name": "caravan_web_backend",
+  "version": "1.0.0",
+  "description": "database access and API for full-stack MERN web app version of the card game from Fallout New Vegas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveKobrin/caravan_web_backend.git"
+  },
+  "keywords": [],
+  "author": "Dave Kobrin and Matt Phillips",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaveKobrin/caravan_web_backend/issues"
+  },
+  "homepage": "https://github.com/DaveKobrin/caravan_web_backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.6.1"
+  }
+}
