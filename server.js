@@ -12,8 +12,9 @@ const cors = require('cors');
 // CONSTANTS
 const app = express();
 const PORT = process.env.PORT || 3000;
+const REACT_URI=process.env.REACT_URI || "http://localhost:3001"
 const SESSION_SECRET = process.env.SESSION_SECRET;
-const whitelist = ['http://localhost:3001', 'http://localhost:3000'];
+const whitelist = [REACT_URI];
 const corsOptions = {
     credentials: true, 
     origin: (origin, callback) => {
