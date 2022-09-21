@@ -2,7 +2,8 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
-const mongoose = require('mongoose');	
+const cors = require('cors');
+
 
 // IMPORT CONTROLLERS
 // const mediaController = require('./controllers/mediaController.js');
@@ -12,17 +13,24 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET;
-const mongoURI = process.env.MONGODB_URI;
-const db = mongoose.connection;
+const whitelist = ['http://localhost:3001', 'http://localhost:3000'];
+const corsOptions = {
+    credentials: true, 
+    origin: (origin, callback) => {
+        console.log(origin);
+        if(whitelist.indexOf(origin) !== -1)
+            callback(null, true);
+        else
+            callback(new Error('Not allowed by CORS'));
+    },
+}
 
-// START SERVER AND DATABASE CONNECTION
-app.listen(PORT, ()=>{ console.log(`Express listening to port : ${PORT}`)});
-mongoose.connect(mongoURI);
-db.on('error', (err)=> {console.log('ERROR! - ' + err.message)});
-db.on('connected', ()=>{console.log(`Connected to - ${db.host} : ${db.port}`)});
-db.on('disconnected', ()=>{console.log('disconnected from mongoDB')});
+
+// DB CONNECTION
+require('./config/db.connection.js');
 
 // MIDDLEWARE  
+app.use(cors(corsOptions));
 app.use(session({ secret: SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(express.static('./public'));
 app.use('/css', express.static(__dirname + '/css'));
@@ -30,3 +38,9 @@ app.use('/images', express.static(__dirname + '/images'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ROUTES
+
+
+// START SERVER
+app.listen(PORT, ()=>{ console.log(`Express listening to port : ${PORT}`)});
