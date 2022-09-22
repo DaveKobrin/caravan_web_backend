@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
+const routes = require('./routes');
 
 
 // IMPORT CONTROLLERS
@@ -42,6 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
 
+app.use("/cards", routes.cards);
 
 // START SERVER
 app.listen(PORT, ()=>{ console.log(`Express listening to port : ${PORT}`)});
