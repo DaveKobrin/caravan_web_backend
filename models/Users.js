@@ -1,7 +1,7 @@
 const { Schema } = require("mongoose");
 const Card = require("./Cards");
 
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     name: {type: String, reqired: true},
@@ -9,9 +9,9 @@ const userSchema = new mongoose.Schema({
     email: {type: String, unique: true},
     password: {type: String, required: true},
     balance: {type: Number, default: 100, min: 0},
-    friends: [{type: Schema.Types.ObjectId, ref: User}],
-    ownedCards: [{type: Schema.Types.ObjectId, ref: Card}],
-    deck: [{type: Schema.Types.ObjectId, ref: Card}],
+    friends: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    ownedCards: [{type: Schema.Types.ObjectId, ref: 'Card'}],
+    deck: [{type: Schema.Types.ObjectId, ref: 'Card'}],
 });
 
 const User = mongoose.model('User', userSchema);
