@@ -61,41 +61,41 @@ const createAllCards = async (req, res) => {
     //catch any errors
     return res.status(400).json({ error: err.message });
   }
-}
+};
 
 const getAllCards = async (req, res) => {
   try {
-    const data = await db.Card.find({});
+    const data = await db.Card.find({ set: 'Standard' });
     return res.status(200).json({ foundData: data });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
-}
+};
 
-const getOneById = async (req,res) => {
+const getOneById = async (req, res) => {
   try {
-    const data = await db.Card.find({_id: req.params.id});
+    const data = await db.Card.find({ _id: req.params.id });
     return res.status(200).json({ foundData: data });
-  } catch(err) {
+  } catch (err) {
     return res.status(400).json({ error: err.message });
   }
-}
+};
 
 const getManyByPattern = async (req, res) => {
   try {
-    const pattern = {[req.params.field]: req.params.value}
+    const pattern = { [req.params.field]: req.params.value };
     console.log(pattern);
     const data = await db.Card.find(pattern);
     console.log(data);
     return res.status(200).json({ foundData: data });
-  } catch(err) {
+  } catch (err) {
     return res.status(400).json({ error: err.message });
   }
-}
+};
 
 module.exports = {
   createAllCards,
   getAllCards,
   getOneById,
   getManyByPattern,
-}
+};
