@@ -7,6 +7,8 @@ const register = async (req, res) => {
     if (userExists) return res.status(403).json({ message: 'gamertag already exists' });
     const salt = bcrypt.genSaltSync(10);
     req.body.password = bcrypt.hashSync(req.body.password, salt);
+    const starterSet = {set: 'Standard'};
+    req.body.ownedCards = await db.Card.find(starterSet,'_id');
     const newUser = await db.User.create(req.body);
     if (newUser) {
       req.session.currentUser = newUser;
