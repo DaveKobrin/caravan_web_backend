@@ -65,10 +65,11 @@ const createAllCards = async (req, res) => {
   }
 }
 
-const getAllCards = async () => {
+const getAllCards = async (req, res) => {
   try {
-    const found = await db.Cards.find({})
-    console.log(found)
+    const temp = await db.Cards.find((err, found) => {
+      res.status(200).JSON({ foundData: found })
+    })
   } catch (err) {
     console.error(err.message)
   }
