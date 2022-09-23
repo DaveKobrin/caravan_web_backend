@@ -1,4 +1,4 @@
 module.exports = {
     cards: require('./cards.ctrls.js'),
-    users: require('./users.ctrls.js'),
+    user: require('./user.ctrls.js'),
 };
