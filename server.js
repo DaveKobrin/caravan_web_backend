@@ -39,10 +39,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
 
-
-app.use("/cards", routes.card);
-app.use("/user", routes.user);
-
+app.use('/cards', routes.card);
+app.use('/user', routes.user);
 
 // START SERVER
 app.listen(PORT, () => {
