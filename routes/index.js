@@ -1,4 +1,4 @@
 module.exports = {
-    cards: require('./cards.routes'),
+    card: require('./card.routes'),
     user: require('./user.routes'),
 };

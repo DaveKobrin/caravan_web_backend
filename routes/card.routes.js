@@ -3,8 +3,8 @@ const router = express.Router();
 
 const ctrls = require('../controllers');
 
-router.post('/createSeed', ctrls.cards.createAllCards);
-router.get('/getCards', ctrls.cards.getAllCards);
+router.post('/createSeed', ctrls.card.createAllCards);
+router.get('/getCards', ctrls.card.getAllCards);
 
 
 module.exports = router;
