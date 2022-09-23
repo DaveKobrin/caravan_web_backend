@@ -5,8 +5,8 @@ const createAllCards = async (req, res) => {
   // console.log('creating cards');
   try {
     // if the cards collection exists drop the collection
-    const found = await db.Cards.find({});
-    if (found) await db.Cards.collection.drop();
+    const found = await db.Card.find({});
+    if (found) await db.Card.collection.drop();
 
     // create the array of cards
     const seedData = [];
@@ -53,7 +53,7 @@ const createAllCards = async (req, res) => {
     }
 
     //insert array into database
-    const inserted = await db.Cards.insertMany(seedData);
+    const inserted = await db.Card.insertMany(seedData);
     // console.log({inserted});
     // console.log(seedData.length);
     return res.status(200).json({ message: 'Card data created successfully.' });
@@ -65,23 +65,37 @@ const createAllCards = async (req, res) => {
 
 const getAllCards = async (req, res) => {
   try {
-    const data = await db.Cards.find({});
-    return res.status(200).JSON({ foundData: data });
+    const data = await db.Card.find({});
+    return res.status(200).json({ foundData: data });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
 }
-// const getAllCards = async (req, res) => {
-//   try {
-//     const temp = await db.Cards.find((err, found) => {
-//       res.status(200).JSON({ foundData: found })
-//     })
-//   } catch (err) {
-//     console.error(err.message)
-//   }
-// }
+
+const getOneById = async (req,res) => {
+  try {
+    const data = await db.Card.find({_id: req.params.id});
+    return res.status(200).json({ foundData: data });
+  } catch(err) {
+    return res.status(400).json({ error: err.message });
+  }
+}
+
+const getManyByPattern = async (req, res) => {
+  try {
+    const pattern = {[req.params.field]: req.params.value}
+    console.log(pattern);
+    const data = await db.Card.find(pattern);
+    console.log(data);
+    return res.status(200).json({ foundData: data });
+  } catch(err) {
+    return res.status(400).json({ error: err.message });
+  }
+}
 
 module.exports = {
   createAllCards,
   getAllCards,
+  getOneById,
+  getManyByPattern,
 }
