@@ -44,6 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES
 
 app.use("/cards", routes.cards);
+app.use("/user", routes.user);
 
 // START SERVER
 app.listen(PORT, ()=>{ console.log(`Express listening to port : ${PORT}`)});
