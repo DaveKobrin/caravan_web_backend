@@ -1,5 +1,4 @@
 const { Schema } = require("mongoose");
-const Card = require("./Cards");
 
 const mongoose = require('mongoose');
 
