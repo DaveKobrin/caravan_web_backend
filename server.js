@@ -18,9 +18,9 @@ const whitelist = [REACT_URI];
 const corsOptions = {
   credentials: true,
   origin: (origin, callback) => {
-    console.log(origin)
-    if (whitelist.indexOf(origin) !== -1) callback(null, true)
-    else callback(new Error('Not allowed by CORS'))
+    console.log(origin);
+    if (whitelist.indexOf(origin) !== -1) callback(null, true);
+    else callback(new Error('Not allowed by CORS'));
   },
 };
 
@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES
 
 
-app.use("/cards", routes.cards);
+app.use("/cards", routes.card);
 app.use("/user", routes.user);
 
 

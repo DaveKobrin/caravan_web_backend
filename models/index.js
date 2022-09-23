@@ -1,4 +1,4 @@
 module.exports = {
-    Users: require('./Users.js'),
-    Cards: require('./Cards.js')
+    User: require('./User.js'),
+    Card: require('./Card.js')
 };
