@@ -12,9 +12,10 @@ const register = async (req, res) => {
         req.body.ownedCards = await db.Card.find(starterSet,'_id');
         const user = await db.User.create(req.body);
 // ******** testing ******************************************
-
         if (user) {
-            console.log('new user created ', user._id);
+            req.session.curUser = user._id;
+            req.session.save();
+            console.log('new user created :', user._id, ' session : ', req.session);
             return res.status(200).json({ message: 'registered new user', user: {
                 id: user._id,
                 name: user.name,
@@ -40,9 +41,10 @@ const login = async (req, res) => {
         
         const validLogin = bcrypt.compareSync(req.body.password, user.password);
         if (validLogin) {
-            // req.session.cookie.currentUser = user._id;
-            // req.session.save();
-            console.log('loging in ', user._id);
+            req.session.curUser = user._id;
+            req.session.save();
+            res.session = req.session;
+            console.log('loging in ', user._id, ' session : ', req.session);
             return res.status(200).json({ message: 'logged in user', user: {
                 id: user._id,
                 name: user.name,
@@ -79,6 +81,10 @@ const getDeck = async (req, res) => {
 
 //  Add a card to the deck by id
 const addCardToDeck = async (req, res) => {
+    console.log('session before reload : ', req.session);
+    await req.session.reload((err)=>{err?console.log({err}):console.log('reloaded session from db')});
+    console.log('session after reload : ', req.session)
+
     if(!req.params.user)
         return res.status(404).json({error: 'no user id'});
     try {
