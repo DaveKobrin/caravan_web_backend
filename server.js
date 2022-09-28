@@ -46,8 +46,8 @@ app.use(session({
     store: mongoDBstore,
     cookie: {
         maxAge: COOKIE_MAX_AGE,
-        // sameSite: 'none',
-        secure: false,
+        sameSite: 'none',
+        secure: true,
         httpOnly:false,
     },
     resave: true,
