@@ -86,7 +86,7 @@ const getManyByPattern = async (req, res) => {
     const pattern = { [req.params.field]: req.params.value };
     console.log(pattern);
     const data = await db.Card.find(pattern);
-    console.log(data);
+    // console.log(data);
     return res.status(200).json({ foundData: data });
   } catch (err) {
     return res.status(400).json({ error: err.message });

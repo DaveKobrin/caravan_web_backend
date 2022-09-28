@@ -15,7 +15,7 @@ const register = async (req, res) => {
         if (user) {
             // req.session.curUser = user._id;
             // req.session.save();
-            console.log('new user created :', user._id);
+            // console.log('new user created :', user._id);
             return res.status(200).json({ message: 'registered new user', user: {
                 id: user._id,
                 name: user.name,
@@ -44,7 +44,7 @@ const login = async (req, res) => {
             // req.session.curUser = user._id;
             // req.session.save();
             // res.session = req.session;
-            console.log('loging in ', user._id);
+            // console.log('loging in ', user._id);
             return res.status(200).json({ message: 'logged in user', user: {
                 id: user._id,
                 name: user.name,
