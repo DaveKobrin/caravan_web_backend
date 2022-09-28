@@ -23,7 +23,7 @@ const REACT_URI = process.env.REACT_URI || 'http://localhost:3001';
 const MONGODB_URI = process.env.MONGODB_URI;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const COOKIE_MAX_AGE = 1000*60*60*1; // login lasts for 1 hour
-const whitelist = [REACT_URI, 'https://localhost:3001', 'http://localhost:3001'];
+const whitelist = [`${REACT_URI}`, 'https://localhost:3001', 'http://localhost:3001'];
 const corsOptions = {
   credentials: true,
   origin: (origin, callback) => {
