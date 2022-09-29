@@ -65,7 +65,7 @@ const createAllCards = async (req, res) => {
 
 const getAllCards = async (req, res) => {
   try {
-    const data = await db.Card.find({ set: 'Standard' });
+    const data = await db.Card.find({});
     return res.status(200).json({ foundData: data });
   } catch (err) {
     return res.status(400).json({ error: err.message });
@@ -84,10 +84,24 @@ const getOneById = async (req, res) => {
 const getManyByPattern = async (req, res) => {
   try {
     const pattern = { [req.params.field]: req.params.value };
-    console.log(pattern);
+    // console.log(pattern);
     const data = await db.Card.find(pattern);
     // console.log(data);
     return res.status(200).json({ foundData: data });
+  } catch (err) {
+    return res.status(400).json({ error: err.message });
+  }
+};
+
+const getRandomCards = async (req, res) => {
+  try {
+    const result = [];
+    // console.log(pattern);
+    const data = await db.Card.find({});
+    // console.log(data);
+    for(let i=0; i<req.params.num; i++)
+      result.push(data[Math.floor(Math.random()*data.length)]);
+    return res.status(200).json({ foundData: result });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
@@ -98,4 +112,5 @@ module.exports = {
   getAllCards,
   getOneById,
   getManyByPattern,
+  getRandomCards,
 };

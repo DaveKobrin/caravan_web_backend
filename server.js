@@ -27,7 +27,7 @@ const whitelist = [`${REACT_URI}`, 'https://localhost:3001', 'http://localhost:3
 const corsOptions = {
   credentials: true,
   origin: (origin, callback) => {
-    console.log(origin);
+    // console.log(origin);
     if ((whitelist.indexOf(origin) !== -1) || (!origin)) callback(null, true);
     else callback(new Error('Not allowed by CORS'));
   },
