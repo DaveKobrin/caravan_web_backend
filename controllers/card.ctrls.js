@@ -27,7 +27,7 @@ const createAllCards = async (req, res) => {
           card.set = set;
           card.isModifier = idx < 10 ? false : true;
           card.face = `${idx + 1}_of_${suit}.png`;
-          card.back = `card_back_${set}`;
+          card.back = `card_back_${set}.png`;
           seedData.push(card);
         }
       }
@@ -38,7 +38,7 @@ const createAllCards = async (req, res) => {
       card.set = set;
       card.isModifier = true;
       card.face = `Joker_1.png`;
-      card.back = `card_back_${set}`;
+      card.back = `card_back_${set}.png`;
       seedData.push(card);
 
       card = {};
@@ -48,7 +48,7 @@ const createAllCards = async (req, res) => {
       card.set = set;
       card.isModifier = true;
       card.face = `Joker_2.png`;
-      card.back = `card_back_${set}`;
+      card.back = `card_back_${set}.png`;
       seedData.push(card);
     }
 

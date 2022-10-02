@@ -10,7 +10,7 @@ const register = async (req, res) => {
         req.body.password = bcrypt.hashSync(req.body.password, salt);
         const starterSet = {set: 'Standard'};
         req.body.ownedCards = await db.Card.find(starterSet,'_id');
-        const user = await db.User.create(req.body);
+        const user = await (await (await (await db.User.create(req.body)).populate('friends')).populate('ownedCards')).populate('deck');
 // ******** testing ******************************************
         if (user) {
             // req.session.curUser = user._id;
@@ -36,7 +36,7 @@ const register = async (req, res) => {
 //  Login an existing user account
 const login = async (req, res) => {
     try {
-        const user = await db.User.findOne({ gamertag: req.body.gamertag });
+        const user = await db.User.findOne({ gamertag: req.body.gamertag }).populate('friends').populate('ownedCards').populate('deck');
         if (!user) return res.status(404).json({ message: 'gamertag not found' });
         
         const validLogin = bcrypt.compareSync(req.body.password, user.password);
@@ -71,7 +71,7 @@ const logout = (req, res) => {
 //  Return the deck from a user._id
 const getDeck = async (req, res) => {
     try{
-        const deck = await db.User.findById(req.params.user, 'deck');
+        const deck = await db.User.findById(req.params.user, 'deck').populate('deck');
         return res.status(200).json({ message: 'found deck', deck });
     } catch(err) {
         //catch any errors
