@@ -57,8 +57,8 @@ database access and API for full-stack MERN web app version of the card game fro
         - Complete caravans have a value between 21 and 26
         - Caravans with a value less than 21 are "Under Burdened" and not complete
         - Caravans with a value more than 26 are "Over Burdened" and also not complete
-        - Normal turns continue until all three pairs of caravans have a complete caravan and any ties are resolved **OR** a player has run out of cards in their draw pile
-        - The winner is the player who has at least 2 of the higher value caravans or the player who still has cards in the draw pile
+        - Normal turns continue until all three pairs of caravans have a complete caravan and any ties are resolved **OR** a player has run out of cards in their hand
+        - The winner is the player who has at least 2 of the higher value complete caravans or the player who still has cards
 
 ## Wireframes
 > Wireframes with basic page layouts<br />
